@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaMagic - Your Entertainment Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+</head>
+<body>
+    <header>
+        <div class="title-section">
+            <div class="title">
+                <h1>FTube</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button onclick="search()">Search</button>
+                <i class="fas fa-microphone" onclick="voiceSearch()"></i> <!-- Voice search icon -->
+            </div>
+            <div class="user-account">
+                <button onclick="login()">Login</button>
+                <button onclick="signup()">Sign Up</button>
+            </div>
+        </div>
+        <div class="navbar">
+            <nav class="nav-links" id="nav-links">
+                <a href="#home">Home</a>
+                <a href="#all">All</a>
+                <a href="#music">Music</a>
+                <a href="#video">Movies</a>
+                <a href="#shorts">Shorts</a>
+                <a href="#live">Live</a>
+                <a href="#recognition">Recognition</a>
+                <a href="#record">Record</a>
+                <a href="#upload">Upload</a>
+                <a href="#account">Account</a>             
+                                
+                
+            </nav>
+            <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+        </div>
+    </header>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <section id="home" class="page-section">
+        <div class="container">
+            <h2>Trending Now</h2>
+            <div class="video-grid" id="video-grid">
+                <div class="video-item" onclick="playVideo('ScMzIvxBSi4', 'video/mp4')">
+                    <img src="https://img.youtube.com/vi/ScMzIvxBSi4/mqdefault.jpg" alt="Sample Video 1">
+                    <p>Sample Video 1</p>
+                </div>
+                <div class="video-item" onclick="playVideo('e-ORhEE9VVg', 'video/mp4')">
+                    <img src="https://img.youtube.com/vi/e-ORhEE9VVg/mqdefault.jpg" alt="Sample Video 2">
+                    <p>Sample Video 2</p>
+                </div>
+                <div class="video-item" onclick="playVideo('9bZkp7q19f0', 'video/mp4')">
+                    <img src="https://img.youtube.com/vi/9bZkp7q19f0/mqdefault.jpg" alt="Sample Video 3">
+                    <p>Sample Video 3</p>
+                </div>
+                <div class="video-item" onclick="playVideo('OPf0YbXqDm0', 'video/mp4')">
+                    <img src="https://img.youtube.com/vi/OPf0YbXqDm0/mqdefault.jpg" alt="Sample Video 4">
+                    <p>Sample Video 4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="all" class="page-section">
+
+
+
+
+    </section>
+
+
+
+    <section id="music" class="page-section">
+        <div class="music-container">
+            <h2>Music Categories</h2>
+            <div class="categories">
+                <button class="category-button" data-category="recentlyPlayed">Recently Played</button>
+                <button class="category-button" data-category="bongo">Bongo</button>
+                <button class="category-button" data-category="hiphop">Hipop</button>
+                <button class="category-button" data-category="rnb">RnB</button>
+                <button class="category-button" data-category="gospel">Gospel</button>
+                <button class="category-button" data-category="live">Live</button>
+                <button class="category-button" data-category="dancehall">Dancehall</button>
+                <button class="category-button" data-category="reggae">Reggae</button>
+                <button class="category-button" data-category="afrobeats">Afrobeats</button>
+                <button class="category-button" data-category="countryMusic">Country Music</button>
+                <button class="category-button" data-category="riddim">Riddim</button>
+                <button class="category-button" data-category="mixes">Mixes</button>
+            </div>
+        </div>
+    
+        <div id="musicList" class="music-list hidden">
+            <!-- Music items will be dynamically added here -->
+        </div>
+    
+        <div id="musicPlayerContainer" class="music-player-container hidden">
+            <div id="musicPlayerControls" class="music-player-controls">
+                <button id="previousButton" class="control-button" title="Previous">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="playButton" class="control-button" title="Play">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="pauseButton" class="control-button" title="Pause">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <button id="stopButton" class="control-button" title="Stop">
+                    <i class="fas fa-stop"></i>
+                </button>
+                <button id="nextButton" class="control-button" title="Next">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button id="closeButton" class="control-button close-button" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <select id="qualitySelect" class="music-settings hidden">
+                    <option value="low">Low Quality</option>
+                    <option value="medium">Medium Quality</option>
+                    <option value="high">High Quality</option>
+                </select>
+                <button id="downloadButton" class="control-button download-button" title="Download">
+                    <i class="fas fa-download"></i>
+                </button>
+            </div>
+            <div id="musicPlayerWrapper" class="music-player-wrapper">
+                <iframe id="musicPlayer" class="music-player" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="video" class="page-section">
+        <!-- Video section content -->
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="live" class="page-section">
+        <!-- Live section content -->
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <section id="recognition" class="page-section">
+        <h2>Audio and Video Recognition</h2>
+        <div class="container">            
+            <div class="bubble-container">
+                <div class="bubble">
+                    <p id="listening" class="listening-text hidden">Listening...!</p>
+                    <button id="start-listening-btn" onclick="startListening()">Start Listening</button>
+                </div>
+            </div>
+            <p id="recognition-status">Click to start listening...</p>
+            <div id="search-results" class="search-results hidden">
+                <h3 id="results-title"></h3>
+                <ul id="results-list">
+                    <!-- Search results will be appended here -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="record" class="page-section">
+        <div class="container">
+            <h2>Record Your Audio or Video</h2>
+    
+            <!-- Audio Recording Controls -->
+            <div class="recording-controls">
+                <button id="startAudio" onclick="startAudioRecording()">
+                    <i class="fas fa-microphone-alt"></i>
+                </button>
+                <button id="stopAudio" onclick="stopAudioRecording()" disabled>
+                    <i class="fas fa-stop"></i>
+                </button>
+                <button id="pauseResumeAudio" onclick="pauseResumeAudioRecording()" disabled>
+                    <i class="fas fa-pause"></i>
+                </button>
+                <span id="audio-timer">00:00:00</span>
+            </div>
+    
+            <!-- Video Recording Controls -->
+            <div class="recording-controls">
+                <button id="startVideo" onclick="startVideoRecording()">
+                    <i class="fas fa-video"></i>
+                </button>
+                <button id="stopVideo" onclick="stopVideoRecording()" disabled>
+                    <i class="fas fa-stop"></i>
+                </button>
+                <button id="pauseResumeVideo" onclick="pauseResumeVideoRecording()" disabled>
+                    <i class="fas fa-pause"></i>
+                </button>
+                <span id="video-timer">00:00:00</span>
+            </div>
+    
+            <!-- Video Stream Container -->
+            <div class="video-stream">
+                <video id="camera-stream" autoplay></video>
+            </div>
+    
+            <!-- Recording Status -->
+            <p id="recording-status">Click icons to start recording...</p>
+    
+            <!-- Recordings List -->
+            <div id="recordings-list"></div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="upload" class="page-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Upload Your Files</h2>
+            </div>
+            <div class="upload-section">
+                <input type="file" id="file-upload" accept="audio/*,video/*" multiple onchange="uploadFiles()">
+                <label for="file-upload" class="upload-button">Upload a File</label>
+                <div id="file-type-selection" class="file-type-selection hidden">
+                    <label for="file-type">Choose file type:</label>
+                    <select id="file-type">
+                        <option value="audio">Audio</option>
+                        <option value="video">Video</option>
+                    </select>
+                </div>
+                <p id="upload-status">Choose files to upload...</p>
+            </div>
+            <div id="file-list" class="file-list">
+                <!-- Uploaded files will be displayed here -->
+            </div>
+            <section id="playback" class="hidden">
+                <h2>Playback and Settings</h2>
+                <div id="media-content"></div>
+                <div id="media-controls">
+                    <button id="play-button" onclick="togglePlay()">Play</button>
+                    <button id="generate-lyrics-button" onclick="generateLyrics()">Generate Lyrics</button>
+                    <button id="generate-captions-button" onclick="generateCaptions()">Generate Captions</button>
+                </div>
+                <div id="settings">
+                    <label for="volume">Volume:</label>
+                    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" onchange="setVolume()">
+                    <label for="speed">Speed:</label>
+                    <select id="speed" onchange="setSpeed()">
+                        <option value="1">Normal</option>
+                        <option value="0.5">0.5x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+            </section>
+        </div>
+    </section>
+    
+    <!-- Stream Popup -->
+    <div id="stream-popup" class="hidden">
+        <div id="stream-content"></div>
+    </div>
+    
+
+
+
+
+
+
+
+
+    <section id="account" class="page-section">
+        <!-- Account section content -->
+    </section>
+
+
+
+    
+    
+
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 F-Tube. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="error-message" class="hidden">
+        <p>No microphone detected</p>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+</body>
+</html>
